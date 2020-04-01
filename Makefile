@@ -1,10 +1,14 @@
 CC = gcc
 CFLAGS = -Wall
 
-all: cardwars
+all: memgrind
 
-cardwars: miceli_cards.c
-	$(CC) $(CFLAGS) miceli_cards.c -o cardwars
+memgrind: card_grind.c testcard
+	$(CC) $(CFLAGS) card_grind.c -o memgrind
 
-clean: 
-	rm -f cardwars
+testcard: card_grind_test.c 
+	$(CC) $(CFLAGS) card_grind_test.c -o testcard
+
+clean:
+	rm -f memgrind
+	rm -f testcard
